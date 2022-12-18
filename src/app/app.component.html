@@ -1,1 +1,59 @@
-<nodeass-nx-welcome></nodeass-nx-welcome>
+<div>
+  <p-card header="Transactions" subheader="List of all Transactions">
+    <div class="grid">
+      <div class="col-12">
+        <p-table
+          [value]="filteredTransaction"
+          styleClass="p-datatable-gridlines"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Id</th>
+              <th>comments</th>
+              <th>date</th>
+              <th>Action</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-transaction>
+            <tr>
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.comments }}</td>
+              <td>{{ transaction.date }}</td>
+              <td>
+                <a style="cursor: pointer; text-decoration: underline">View</a>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <p-table [value]="transactions" styleClass="p-datatable-gridlines">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Id</th>
+              <th>sender</th>
+              <th>recipient</th>
+              <th>currencyCd</th>
+              <th>comments</th>
+              <th>status</th>
+              <th>date</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-transaction>
+            <tr>
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.sender.firstName }}</td>
+              <td>{{ transaction.recipient.firstName }}</td>
+              <td>{{ transaction.currencyCd }}</td>
+              <td>{{ transaction.comments }}</td>
+              <td>{{ transaction.status }}</td>
+              <td>{{ transaction.date }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div></p-card
+  >
+</div>
